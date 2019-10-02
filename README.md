@@ -37,4 +37,4 @@ ansible-playbook main.yml
 Author Information
 ------------------
 
-Developed by Adrian Sanchez Medina (adrian.sanchez_medina@roche.com), part of IaC engineering team, part of Global Infrastructure Services (Madrid)
+Developed by Adrian Sanchez Medina (adrime92@gmail.com)
