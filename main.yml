@@ -1,20 +1,11 @@
 ---
-- hosts: edkgorgtest
+- hosts: #FillMeUP
   become: false
+  vars:
+    user_name: #FillMeUP
+    pubkey: #FillMeUP
   tasks:
     
-    # - name: create {{ user_name }} group
-    #   group:
-    #     name: service
-    #     gid: 57127
-    #     state: present
-    
-    - name: delete /etc/gshadow 
-      become: true
-      file:
-        path: /etc/gshadow
-        state: absent
-
     - name: create {{ user_name }} user
       become: true
       user:
@@ -22,7 +13,7 @@
         comment: "{{ user_name }}"
         home: /home/users/{{ user_name }}
         shell: /bin/bash
-    
+      
     - name: create /etc/sudoers.d/{{ user_name }}
       become: true
       file:
@@ -31,15 +22,6 @@
         owner: root
         group: root
         mode: '0644'
-
-    - name: create .ssh directory inside home users directory
-      become: true
-      file:
-        path: /home/users/{{ user_name }}/.ssh/
-        owner: "{{ user_name }}"
-        group: "{{ user_name }}"
-        mode: '0700'
-        state: directory
 
     - name: add {{ user_name }} user to /etc/sudoers.d/{{ user_name }}
       become: true
@@ -58,23 +40,16 @@
       # "keys"
       register: keys
       with_fileglob:
-        - "caas_ansible_id_rsa.pub"
+        - "{{ pubkey }}"
 
-    # keys = ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC3v2k1z+ACCMYMdVzLiNHrEjx2OPnRNIlDdN6k/n5hYD5wEllPi00T2vNjywvdWOriiHGx0arZF9G7Uj+5osF/320eCPztgevmkhZGDXplNI3aAZu9MP3kH4zbEhzOdKOxW2vCJx3DWmEbpXSbeVHJjo5czLutCYVHFRj9gBXK7QmFV2pjicaU5yHMkjPDTF9CJgW/S8Qs1enS4OddbUARdZ6GncTq78PBnyoSfz8+Fj1b4LOLbRR1bY2UYcKhZxxD4hghlTYKh2TFYiUFV6RiioPurcSeEHtcdxQLIPmmDcwvFtPi9dSYRJrE8FiMk0YLdc6nqPzs2isXiJ7Vfw6h magalloa@magalloa-dev-2-0
-
-    # - name: show what was stored in the keys variable
-    #   debug:
-    #     var: keys
-
-
-    # añadir en /home/users/caas_ansible/.ssh/authorized_keys
-    - name: Set authorized key taken from file
+    - name: inject authorized key taken from file
       become: true
       authorized_key:
         user: "{{ user_name }}"
         state: present
+        manage_dir: yes
         key: "{{item.stdout}}"
-      with_items: "{{keys.results}}"
+      with_items: "{{ keys.results }}"
 
 
 
