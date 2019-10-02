@@ -5,10 +5,7 @@ What this project do:
 * It adds {{ user_name }} into /etc/sudoers.d/{{ user_name }}
 * It injects the specified public key into the host/s
 
-Where can is use it?
---------------------
-
-It has been tested on RSOE/CSOE 7.6 (maipo)
+*It has been tested on RSOE/CSOE 7.6 (maipo)*
 
 How to use it
 -------------
