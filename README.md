@@ -17,7 +17,7 @@ vars:
     pubkey: #yourPubKey
 ```
 
-***ansible.cfg:**
+**ansible.cfg:**
 ```.yaml
 remote_user = #sshUserWithSudoRights
 ```
