@@ -1,19 +1,23 @@
-## What this project do:
+What this project do:
+---------------------
 
 * It creates {{ user_name }} user
 * It adds {{ user_name }} into /etc/sudoers.d/{{ user_name }}
 * It injects the specified public key into the host/s
 
-### Where can is use it?
+Where can is use it?
+--------------------
+
 It has been tested on RSOE/CSOE 7.6 (maipo)
 
-### How to use it
+How to use it
+-------------
 
 * Fill up your inventory file
 * Add your public key to the porject folder
 * Set the following configurations:
 
-**main.yml:**
+*main.yml:*
 ```yaml
 hosts: #yourTargetGroup/host
 vars:
@@ -21,12 +25,13 @@ vars:
     pubkey: #yourPubKey
 ```
 
-**ansible.cfg:**
+*ansible.cfg:*
 ```.yaml
 remote_user = #sshUserWithSudoRights
 ```
 
-### Execution example 
+Execution example
+------------------
 
 ```bash
 ansible-playbook main.yml 
