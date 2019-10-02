@@ -1,30 +1,31 @@
 # Role:
 This role:
-* Creates {{ user_name }} user
-* Adds it into /etc/sudoers.d/{{ user_name }}
-* Injects the specified pub.ssh (add .pub in the project folder)
-* Has been tested on RSOE/CSOE 7.6 (maipo)
+* creates {{ user_name }} user
+* adds {{ user_name }} into /etc/sudoers.d/{{ user_name }}
+* injects the specified pub.ssh (add .pub in the project folder)
+* has been tested on RSOE/CSOE 7.6 (maipo)
+
 ## How to use it
 
 Set the following configurations:
 
-*main.yml*:
-```yml
+**main.yml:**
+```yaml
 hosts: #yourTargetGroup/host
 vars:
     user_name: #UserToBeCreated
     pubkey: #yourPubKey
 ```
 
-*ansible.cfg*:
-```.cfg
+***ansible.cfg:**
+```.yaml
 remote_user = #sshUserWithSudoRights
 ```
 
-*Fill up your inventory file*
+**Fill up your inventory file**
 
 ## Example Execution
 
-```sh
+```bash
 ansible-playbook main.yml 
 ```
