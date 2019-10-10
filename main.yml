@@ -12,6 +12,7 @@
         name: "{{ user_name }}"
         comment: "{{ user_name }}"
         home: /home/users/{{ user_name }}
+        expires: -1
         shell: /bin/bash
       
     - name: create /etc/sudoers.d/{{ user_name }}
