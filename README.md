@@ -42,3 +42,5 @@ Author Information
 ------------------
 
 Developed by Adrian Sanchez Medina (adrime92@gmail.com)
+
+If you wish to contribute do not hesitate and raise a pull request, they are more than welcome!
