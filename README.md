@@ -42,5 +42,8 @@ Author Information
 ------------------
 
 Developed by Adrian Sanchez Medina (adrime92@gmail.com)
+<<<<<<< HEAD
 
 If you wish to contribute do not hesitate and raise a pull request, they are more than welcome!
+=======
+>>>>>>> 9f5d8b7c5dd74a6f82ff31245dfb927f16b616c4
