@@ -7,6 +7,10 @@ What this project do:
 
 *It has been tested on RSOE/CSOE 7.6*
 
+Requirements
+------------
+* ansible version >= "v.2.7". For previous versions the following bug could be experimented: https://github.com/ansible/ansible/issues/44155
+
 How to use it
 -------------
 
